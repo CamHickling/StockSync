@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StockSync</title>
+  <meta name="description" content="Count a shelf section with a barcode scanner and see where Shopify and Lightspeed disagree with what's really there.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23116149'/%3E%3Cpath d='M9 11h14M9 16h14M9 21h9' stroke='white' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8"/><path d="M9 11h14M9 16h14M9 21h9"/></svg>
+      <div>
+        <h1>StockSync</h1>
+        <p class="tagline">Count a shelf. See where the systems are wrong.</p>
+      </div>
+    </div>
+    <div id="dataBar" class="data-bar" hidden></div>
+  </header>
+
+  <main>
+    <!-- Step 1: load the exports -->
+    <section id="setup" class="card setup" aria-labelledby="setupTitle">
+      <h2 id="setupTitle">Load your inventory</h2>
+      <p class="muted">Export your inventory from Shopify and your items from Lightspeed, then drop both files here. They're read on this computer and never uploaded.</p>
+      <div class="drops">
+        <label class="drop" data-system="shopify">
+          <input type="file" accept=".csv,text/csv" data-file="shopify">
+          <span class="drop-title">Shopify inventory export</span>
+          <span class="drop-hint">Products › Inventory › Export (CSV)</span>
+          <span class="drop-status" data-status="shopify">Drop a CSV or choose a file</span>
+        </label>
+        <label class="drop" data-system="lightspeed">
+          <input type="file" accept=".csv,text/csv" data-file="lightspeed">
+          <span class="drop-title">Lightspeed item export</span>
+          <span class="drop-hint">Inventory › Items › Export (CSV)</span>
+          <span class="drop-status" data-status="lightspeed">Drop a CSV or choose a file</span>
+        </label>
+      </div>
+      <p id="setupError" class="error" role="alert" hidden></p>
+      <div class="setup-actions">
+        <button id="useFiles" class="btn primary" disabled>Start counting</button>
+        <span class="or">or</span>
+        <button id="useSample" class="btn">Try it with a sample shop</button>
+      </div>
+      <p class="small muted">The sample is Lantern Cycles, a made-up bike shop with about 200 products and a few planted mismatches.</p>
+    </section>
+
+    <!-- Step 2: count and compare -->
+    <section id="work" class="work" hidden>
+      <div class="card scan-card">
+        <div class="section-row">
+          <label for="section">Section</label>
+          <select id="section"></select>
+        </div>
+        <form id="scanForm" autocomplete="off">
+          <label for="scan" class="scan-label">Scan or type a barcode or SKU</label>
+          <div class="scan-row">
+            <input id="scan" class="scan-input" inputmode="text" autocomplete="off" spellcheck="false" placeholder="Ready to scan">
+            <button class="btn primary" type="submit">Add</button>
+          </div>
+        </form>
+        <div id="feedback" class="feedback" aria-live="polite"></div>
+        <div class="scan-actions">
+          <button id="undo" class="btn small-btn" type="button">Undo last scan</button>
+          <button id="reset" class="btn small-btn" type="button">Start this section again</button>
+          <button id="demo" class="btn small-btn" type="button" hidden>Play demo scans</button>
+        </div>
+        <h3 class="recent-title">Recent scans</h3>
+        <ol id="recent" class="recent"></ol>
+      </div>
+
+      <div class="card report-card">
+        <div class="report-head">
+          <h2>Report <span id="reportSection" class="muted"></span></h2>
+          <button id="export" class="btn" type="button">Export CSV</button>
+        </div>
+        <div id="tiles" class="tiles" role="tablist" aria-label="Filter the report"></div>
+        <div class="table-wrap">
+          <table class="report">
+            <thead><tr><th>Status</th><th>Item</th><th class="num">Counted</th><th class="num">Shopify</th><th class="num">Lightspeed</th><th>Details</th></tr></thead>
+            <tbody id="rows"></tbody>
+          </table>
+        </div>
+        <p id="empty" class="muted empty" hidden>Nothing here yet. Start scanning the shelf.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot small muted">
+    StockSync is open source · <a href="https://github.com/CamHickling/StockSync">GitHub</a> · Not affiliated with Shopify or Lightspeed.
+  </footer>
+
+  <script src="src/reconcile.js"></script>
+  <script src="sample/sample-data.js"></script>
+  <script src="src/app.js"></script>
+</body>
+</html>

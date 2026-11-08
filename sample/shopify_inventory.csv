@@ -1,0 +1,193 @@
+Handle,Title,Option1 Name,Option1 Value,Option2 Name,Option2 Value,Option3 Name,Option3 Value,SKU,HS Code,COO,Location,Bin name,Incoming (not editable),Unavailable (not editable),Committed (not editable),Available (not editable),On hand (current),On hand (new)
+halden-aero-2,Halden Aero 2,Size,XS,,,,,BK-001-XS,,,Lantern Cycles,A1,0,0,0,2,2,2
+halden-aero-2,Halden Aero 2,Size,S,,,,,BK-002-S,,,Lantern Cycles,A1,0,0,0,1,1,1
+halden-aero-2,Halden Aero 2,Size,M,,,,,BK-003-M,,,Lantern Cycles,A1,0,0,0,0,0,0
+halden-aero-2,Halden Aero 2,Size,L,,,,,BK-004-L,,,Lantern Cycles,A1,0,0,0,1,1,1
+halden-aero-2,Halden Aero 2,Size,XL,,,,,BK-005-XL,,,Lantern Cycles,A1,0,0,0,1,1,1
+vantis-strada,Vantis Strada,Size,XS,,,,,BK-006-XS,,,Lantern Cycles,A1,0,0,0,2,2,2
+vantis-strada,Vantis Strada,Size,S,,,,,BK-007-S,,,Lantern Cycles,A1,0,0,0,0,0,0
+vantis-strada,Vantis Strada,Size,M,,,,,BK-008-M,,,Lantern Cycles,A1,0,0,0,1,1,1
+vantis-strada,Vantis Strada,Size,L,,,,,BK-009-L,,,Lantern Cycles,A1,0,0,0,2,2,2
+vantis-strada,Vantis Strada,Size,XL,,,,,BK-010-XL,,,Lantern Cycles,A1,0,0,0,1,1,1
+vantis-gravelline,Vantis Gravelline,Size,XS,,,,,BK-011-XS,,,Lantern Cycles,A1,0,0,0,1,1,1
+vantis-gravelline,Vantis Gravelline,Size,S,,,,,BK-012-S,,,Lantern Cycles,A1,0,0,0,0,0,0
+vantis-gravelline,Vantis Gravelline,Size,M,,,,,BK-013-M,,,Lantern Cycles,A1,0,0,0,2,2,2
+vantis-gravelline,Vantis Gravelline,Size,L,,,,,BK-014-L,,,Lantern Cycles,A1,0,0,0,1,1,1
+vantis-gravelline,Vantis Gravelline,Size,XL,,,,,BK-015-XL,,,Lantern Cycles,A1,0,0,0,1,1,1
+halden-loam-gx,Halden Loam GX,Size,XS,,,,,BK-016-XS,,,Lantern Cycles,A1,0,0,0,2,2,2
+halden-loam-gx,Halden Loam GX,Size,S,,,,,BK-017-S,,,Lantern Cycles,A1,0,0,0,2,2,2
+halden-loam-gx,Halden Loam GX,Size,M,,,,,BK-018-M,,,Lantern Cycles,A1,0,0,0,2,2,2
+halden-loam-gx,Halden Loam GX,Size,L,,,,,BK-019-L,,,Lantern Cycles,A1,0,0,0,2,2,2
+halden-loam-gx,Halden Loam GX,Size,XL,,,,,BK-020-XL,,,Lantern Cycles,A1,0,0,0,1,1,1
+pellora-ridge-29,Pellora Ridge 29,Size,XS,,,,,MT-021-XS,,,Lantern Cycles,A2,0,0,0,2,2,2
+pellora-ridge-29,Pellora Ridge 29,Size,S,,,,,MT-022-S,,,Lantern Cycles,A2,0,0,0,1,1,1
+pellora-ridge-29,Pellora Ridge 29,Size,M,,,,,MT-023-M,,,Lantern Cycles,A2,0,0,0,2,2,2
+pellora-ridge-29,Pellora Ridge 29,Size,L,,,,,MT-024-L,,,Lantern Cycles,A2,0,0,0,1,1,1
+pellora-ridge-29,Pellora Ridge 29,Size,XL,,,,,MT-025-XL,,,Lantern Cycles,A2,0,0,0,1,1,1
+torvik-switchback,Torvik Switchback,Size,XS,,,,,MT-026-XS,,,Lantern Cycles,A2,0,0,0,2,2,2
+torvik-switchback,Torvik Switchback,Size,S,,,,,MT-027-S,,,Lantern Cycles,A2,0,0,0,1,1,1
+torvik-switchback,Torvik Switchback,Size,M,,,,,MT-028-M,,,Lantern Cycles,A2,0,0,0,2,2,2
+torvik-switchback,Torvik Switchback,Size,L,,,,,MT-029-L,,,Lantern Cycles,A2,0,0,0,2,2,2
+torvik-switchback,Torvik Switchback,Size,XL,,,,,MT-030-XL,,,Lantern Cycles,A2,0,0,0,2,2,2
+pellora-cairn,Pellora Cairn,Size,XS,,,,,MT-031-XS,,,Lantern Cycles,A2,0,0,0,2,2,2
+pellora-cairn,Pellora Cairn,Size,S,,,,,MT-032-S,,,Lantern Cycles,A2,0,0,0,1,1,1
+pellora-cairn,Pellora Cairn,Size,M,,,,,MT-033-M,,,Lantern Cycles,A2,0,0,0,1,1,1
+pellora-cairn,Pellora Cairn,Size,L,,,,,MT-034-L,,,Lantern Cycles,A2,0,0,0,1,1,1
+pellora-cairn,Pellora Cairn,Size,XL,,,,,MT-035-XL,,,Lantern Cycles,A2,0,0,0,1,1,1
+torvik-cairn-pro,Torvik Cairn Pro,Size,XS,,,,,MT-036-XS,,,Lantern Cycles,A2,0,0,0,2,2,2
+torvik-cairn-pro,Torvik Cairn Pro,Size,S,,,,,MT-037-S,,,Lantern Cycles,A2,0,0,0,0,0,0
+torvik-cairn-pro,Torvik Cairn Pro,Size,M,,,,,MT-038-M,,,Lantern Cycles,A2,0,0,0,0,0,0
+torvik-cairn-pro,Torvik Cairn Pro,Size,L,,,,,MT-039-L,,,Lantern Cycles,A2,0,0,0,0,0,0
+torvik-cairn-pro,Torvik Cairn Pro,Size,XL,,,,,MT-040-XL,,,Lantern Cycles,A2,0,0,0,1,1,1
+fennick-commuter-7,Fennick Commuter 7,Size,S,,,,,CT-041-S,,,Lantern Cycles,A3,0,0,0,1,1,1
+fennick-commuter-7,Fennick Commuter 7,Size,M,,,,,CT-042-M,,,Lantern Cycles,A3,0,0,0,0,0,0
+fennick-commuter-7,Fennick Commuter 7,Size,L,,,,,CT-043-L,,,Lantern Cycles,A3,0,0,0,2,2,2
+fennick-volt-city,Fennick Volt City,Size,S,,,,,CT-044-S,,,Lantern Cycles,A3,0,0,0,0,0,0
+fennick-volt-city,Fennick Volt City,Size,M,,,,,CT-045-M,,,Lantern Cycles,A3,0,0,0,0,0,0
+fennick-volt-city,Fennick Volt City,Size,L,,,,,CT-046-L,,,Lantern Cycles,A3,0,0,0,1,1,1
+ostro-volt-cargo,Ostro Volt Cargo,Size,S,,,,,CT-047-S,,,Lantern Cycles,A3,0,0,0,2,2,2
+ostro-volt-cargo,Ostro Volt Cargo,Size,M,,,,,CT-048-M,,,Lantern Cycles,A3,0,0,0,0,0,0
+ostro-volt-cargo,Ostro Volt Cargo,Size,L,,,,,CT-049-L,,,Lantern Cycles,A3,0,0,0,0,0,0
+ostro-volt-step-through,Ostro Volt Step-through,Size,S,,,,,CT-050-S,,,Lantern Cycles,A3,0,0,0,0,0,0
+ostro-volt-step-through,Ostro Volt Step-through,Size,M,,,,,CT-051-M,,,Lantern Cycles,A3,0,0,0,1,1,1
+pellora-sprout-16,Pellora Sprout 16,Size,Red,,,,,KD-053-Red,,,Lantern Cycles,A4,0,0,0,0,0,0
+pellora-sprout-16,Pellora Sprout 16,Size,Blue,,,,,KD-054-Blue,,,Lantern Cycles,A4,0,0,0,3,3,3
+pellora-sprout-20,Pellora Sprout 20,Size,Red,,,,,KD-055-Red,,,Lantern Cycles,A4,0,0,0,3,3,3
+pellora-sprout-20,Pellora Sprout 20,Size,Blue,,,,,KD-056-Blue,,,Lantern Cycles,A4,0,0,0,3,3,3
+pellora-scout-24,Pellora Scout 24,Size,Red,,,,,KD-057-Red,,,Lantern Cycles,A4,0,0,0,2,2,2
+pellora-scout-24,Pellora Scout 24,Size,Blue,,,,,KD-058-Blue,,,Lantern Cycles,A4,0,0,0,3,3,3
+pellora-balance-12,Pellora Balance 12,Size,Red,,,,,KD-059-Red,,,Lantern Cycles,A4,0,0,0,1,1,1
+pellora-balance-12,Pellora Balance 12,Size,Blue,,,,,KD-060-Blue,,,Lantern Cycles,A4,0,0,0,3,3,3
+torvik-road-700x25,Torvik Road 700x25,Title,Default Title,,,,,TR-061,,,Lantern Cycles,B1,0,0,0,11,11,11
+torvik-road-700x28,Torvik Road 700x28,Title,Default Title,,,,,TR-062,,,Lantern Cycles,B1,0,0,0,6,6,6
+torvik-road-700x32,Torvik Road 700x32,Title,Default Title,,,,,TR-063,,,Lantern Cycles,B1,0,0,0,5,5,5
+torvik-gravel-700x38,Torvik Gravel 700x38,Title,Default Title,,,,,TR-064,,,Lantern Cycles,B1,0,0,0,5,5,5
+torvik-gravel-700x45,Torvik Gravel 700x45,Title,Default Title,,,,,TR-065,,,Lantern Cycles,B1,0,0,0,10,10,10
+torvik-trail-29x2-4,Torvik Trail 29x2.4,Title,Default Title,,,,,TR-066,,,Lantern Cycles,B1,0,0,0,10,10,10
+torvik-trail-29x2-6,Torvik Trail 29x2.6,Title,Default Title,,,,,TR-067,,,Lantern Cycles,B1,0,0,0,4,4,4
+gripwell-trail-27-5x2-4,Gripwell Trail 27.5x2.4,Title,Default Title,,,,,TR-068,,,Lantern Cycles,B1,0,0,0,9,9,9
+gripwell-city-700x35,Gripwell City 700x35,Title,Default Title,,,,,TR-069,,,Lantern Cycles,B1,0,0,0,7,7,7
+gripwell-city-700x40,Gripwell City 700x40,Title,Default Title,,,,,TR-070,,,Lantern Cycles,B1,0,0,0,4,4,4
+gripwell-kids-20x1-75,Gripwell Kids 20x1.75,Title,Default Title,,,,,TR-071,,,Lantern Cycles,B1,0,0,0,4,4,4
+torvik-kids-16x1-95,Torvik Kids 16x1.95,Title,Default Title,,,,,TR-072,,,Lantern Cycles,B1,0,0,0,8,8,8
+gripwell-700x23-28-presta,Gripwell 700x23-28 Presta,Title,Default Title,,,,,TB-073,,,Lantern Cycles,B2,0,0,0,7,7,7
+gripwell-700x28-35-presta,Gripwell 700x28-35 Presta,Title,Default Title,,,,,TB-074,,,Lantern Cycles,B2,0,0,0,18,18,18
+gripwell-700x35-45-schrader,Gripwell 700x35-45 Schrader,Title,Default Title,,,,,TB-075,,,Lantern Cycles,B2,0,0,0,22,22,22
+gripwell-29x2-1-2-5-presta,Gripwell 29x2.1-2.5 Presta,Title,Default Title,,,,,TB-076,,,Lantern Cycles,B2,0,0,0,9,9,9
+gripwell-27-5x2-1-2-5-presta,Gripwell 27.5x2.1-2.5 Presta,Title,Default Title,,,,,TB-077,,,Lantern Cycles,B2,0,0,0,11,11,11
+gripwell-26x1-9-2-3-schrader,Gripwell 26x1.9-2.3 Schrader,Title,Default Title,,,,,TB-078,,,Lantern Cycles,B2,0,0,0,18,18,18
+gripwell-20x1-75-schrader,Gripwell 20x1.75 Schrader,Title,Default Title,,,,,TB-079,,,Lantern Cycles,B2,0,0,0,20,20,20
+gripwell-16x1-95-schrader,Gripwell 16x1.95 Schrader,Title,Default Title,,,,,TB-080,,,Lantern Cycles,B2,0,0,0,9,9,9
+stopwell-disc-pads-resin,Stopwell Disc pads resin,Title,Default Title,,,,,BR-081,,,Lantern Cycles,B3,0,0,0,12,12,12
+stopwell-disc-pads-metal,Stopwell Disc pads metal,Title,Default Title,,,,,BR-082,,,Lantern Cycles,B3,0,0,0,14,14,14
+stopwell-rotor-160,Stopwell Rotor 160,Title,Default Title,,,,,BR-083,,,Lantern Cycles,B3,0,0,0,12,12,12
+halden-rotor-180,Halden Rotor 180,Title,Default Title,,,,,BR-084,,,Lantern Cycles,B3,0,0,0,3,3,3
+halden-rotor-203,Halden Rotor 203,Title,Default Title,,,,,BR-085,,,Lantern Cycles,B3,0,0,0,4,4,4
+halden-rim-pads,Halden Rim pads,Title,Default Title,,,,,BR-086,,,Lantern Cycles,B3,0,0,0,5,5,5
+stopwell-chain-11-speed,Stopwell Chain 11-speed,Title,Default Title,,,,,DR-087,,,Lantern Cycles,B4,0,0,0,5,5,5
+stopwell-chain-12-speed,Stopwell Chain 12-speed,Title,Default Title,,,,,DR-088,,,Lantern Cycles,B4,0,0,0,7,7,7
+stopwell-chain-9-speed,Stopwell Chain 9-speed,Title,Default Title,,,,,DR-089,,,Lantern Cycles,B4,0,0,0,3,3,3
+stopwell-cassette-11-34,Stopwell Cassette 11-34,Title,Default Title,,,,,DR-090,,,Lantern Cycles,B4,0,0,0,5,5,5
+stopwell-cassette-10-51,Stopwell Cassette 10-51,Title,Default Title,,,,,DR-091,,,Lantern Cycles,B4,0,0,0,4,4,4
+stopwell-cassette-11-42,Stopwell Cassette 11-42,Title,Default Title,,,,,DR-092,,,Lantern Cycles,B4,0,0,0,2,2,2
+stopwell-chainring-32t,Stopwell Chainring 32T,Title,Default Title,,,,,DR-093,,,Lantern Cycles,B4,0,0,0,1,1,1
+stopwell-chainring-34t,Stopwell Chainring 34T,Title,Default Title,,,,,DR-094,,,Lantern Cycles,B4,0,0,0,6,6,6
+stopwell-quick-link-11,Stopwell Quick link 11,Title,Default Title,,,,,DR-095,,,Lantern Cycles,B4,0,0,0,4,4,4
+stopwell-quick-link-12,Stopwell Quick link 12,Title,Default Title,,,,,DR-096,,,Lantern Cycles,B4,0,0,0,1,1,1
+stopwell-derailleur-hanger-a,Stopwell Derailleur hanger A,Title,Default Title,,,,,DR-097,,,Lantern Cycles,B4,0,0,0,8,8,8
+stopwell-derailleur-hanger-b,Stopwell Derailleur hanger B,Title,Default Title,,,,,DR-098,,,Lantern Cycles,B4,0,0,0,6,6,6
+ostro-urban,Ostro Urban,Size,S,,,,,HM-099-S,,,Lantern Cycles,C1,0,0,0,2,2,2
+ostro-urban,Ostro Urban,Size,M,,,,,HM-100-M,,,Lantern Cycles,C1,0,0,0,0,0,0
+ostro-urban,Ostro Urban,Size,L,,,,,HM-101-L,,,Lantern Cycles,C1,0,0,0,2,2,2
+ostro-road-air,Ostro Road Air,Size,S,,,,,HM-102-S,,,Lantern Cycles,C1,0,0,0,5,5,5
+ostro-road-air,Ostro Road Air,Size,M,,,,,HM-103-M,,,Lantern Cycles,C1,0,0,0,5,5,5
+ostro-road-air,Ostro Road Air,Size,L,,,,,HM-104-L,,,Lantern Cycles,C1,0,0,0,5,5,5
+ostro-trail-mips,Ostro Trail MIPS,Size,S,,,,,HM-105-S,,,Lantern Cycles,C1,0,0,0,5,5,5
+ostro-trail-mips,Ostro Trail MIPS,Size,M,,,,,HM-106-M,,,Lantern Cycles,C1,0,0,0,0,0,0
+ostro-trail-mips,Ostro Trail MIPS,Size,L,,,,,HM-107-L,,,Lantern Cycles,C1,0,0,0,2,2,2
+vantis-kids-mini,Vantis Kids Mini,Size,S,,,,,HM-108-S,,,Lantern Cycles,C1,0,0,0,1,1,1
+vantis-kids-mini,Vantis Kids Mini,Size,M,,,,,HM-109-M,,,Lantern Cycles,C1,0,0,0,1,1,1
+beamline-front-400,Beamline Front 400,Title,Default Title,,,,,LT-111,,,Lantern Cycles,C2,0,0,0,2,2,2
+beamline-front-800,Beamline Front 800,Title,Default Title,,,,,LT-112,,,Lantern Cycles,C2,0,0,0,2,2,2
+beamline-front-1200,Beamline Front 1200,Title,Default Title,,,,,LT-113,,,Lantern Cycles,C2,0,0,0,9,9,9
+beamline-rear-50,Beamline Rear 50,Title,Default Title,,,,,LT-114,,,Lantern Cycles,C2,0,0,0,6,6,6
+beamline-rear-150,Beamline Rear 150,Title,Default Title,,,,,LT-115,,,Lantern Cycles,C2,0,0,0,5,5,5
+beamline-rear-radar,Beamline Rear radar,Title,Default Title,,,,,LT-116,,,Lantern Cycles,C2,0,0,0,4,4,4
+beamline-set-400-50,Beamline Set 400/50,Title,Default Title,,,,,LT-117,,,Lantern Cycles,C2,0,0,0,9,9,9
+beamline-helmet-light,Beamline Helmet light,Title,Default Title,,,,,LT-118,,,Lantern Cycles,C2,0,0,0,5,5,5
+beamline-spoke-lights,Beamline Spoke lights,Title,Default Title,,,,,LT-119,,,Lantern Cycles,C2,0,0,0,9,9,9
+holdfast-u-lock-mini,Holdfast U-lock mini,Title,Default Title,,,,,LK-120,,,Lantern Cycles,C3,0,0,0,2,2,2
+holdfast-u-lock-standard,Holdfast U-lock standard,Title,Default Title,,,,,LK-121,,,Lantern Cycles,C3,0,0,0,2,2,2
+holdfast-u-lock-cable,Holdfast U-lock + cable,Title,Default Title,,,,,LK-122,,,Lantern Cycles,C3,0,0,0,8,8,8
+holdfast-folding-lock,Holdfast Folding lock,Title,Default Title,,,,,LK-123,,,Lantern Cycles,C3,0,0,0,4,4,4
+holdfast-chain-90,Holdfast Chain 90,Title,Default Title,,,,,LK-124,,,Lantern Cycles,C3,0,0,0,7,7,7
+holdfast-chain-120,Holdfast Chain 120,Title,Default Title,,,,,LK-125,,,Lantern Cycles,C3,0,0,0,4,4,4
+holdfast-cable-180,Holdfast Cable 180,Title,Default Title,,,,,LK-126,,,Lantern Cycles,C3,0,0,0,1,1,1
+fennick-bottle-620-ml,Fennick Bottle 620 ml,Title,Default Title,,,,,BT-127,,,Lantern Cycles,D1,0,0,0,6,6,6
+fennick-bottle-750-ml,Fennick Bottle 750 ml,Title,Default Title,,,,,BT-128,,,Lantern Cycles,D1,0,0,0,13,13,13
+fennick-insulated-600,Fennick Insulated 600,Title,Default Title,,,,,BT-129,,,Lantern Cycles,D1,0,0,0,4,4,4
+fennick-kids-bottle-400,Fennick Kids bottle 400,Title,Default Title,,,,,BT-130,,,Lantern Cycles,D1,0,0,0,5,5,5
+fennick-cage-alloy,Fennick Cage alloy,Title,Default Title,,,,,BT-131,,,Lantern Cycles,D1,0,0,0,3,3,3
+fennick-cage-carbon,Fennick Cage carbon,Title,Default Title,,,,,BT-132,,,Lantern Cycles,D1,0,0,0,6,6,6
+fennick-cage-side-load,Fennick Cage side-load,Title,Default Title,,,,,BT-133,,,Lantern Cycles,D1,0,0,0,17,17,17
+fennick-cage-mount-adapter,Fennick Cage mount adapter,Title,Default Title,,,,,BT-134,,,Lantern Cycles,D1,0,0,0,6,6,6
+stopwell-multitool-12,Stopwell Multitool 12,Title,Default Title,,,,,TL-135,,,Lantern Cycles,D2,0,0,0,9,9,9
+beamline-multitool-18,Beamline Multitool 18,Title,Default Title,,,,,TL-136,,,Lantern Cycles,D2,0,0,0,3,3,3
+stopwell-mini-pump,Stopwell Mini pump,Title,Default Title,,,,,TL-137,,,Lantern Cycles,D2,0,0,0,7,7,7
+beamline-floor-pump,Beamline Floor pump,Title,Default Title,,,,,TL-138,,,Lantern Cycles,D2,0,0,0,13,13,13
+beamline-co2-inflator,Beamline CO2 inflator,Title,Default Title,,,,,TL-139,,,Lantern Cycles,D2,0,0,0,8,8,8
+beamline-chain-lube-dry,Beamline Chain lube dry,Title,Default Title,,,,,TL-140,,,Lantern Cycles,D2,0,0,0,5,5,5
+beamline-chain-lube-wet,Beamline Chain lube wet,Title,Default Title,,,,,TL-141,,,Lantern Cycles,D2,0,0,0,13,13,13
+stopwell-degreaser,Stopwell Degreaser,Title,Default Title,,,,,TL-142,,,Lantern Cycles,D2,0,0,0,8,8,8
+stopwell-tire-levers,Stopwell Tire levers,Title,Default Title,,,,,TL-143,,,Lantern Cycles,D2,0,0,0,5,5,5
+stopwell-patch-kit,Stopwell Patch kit,Title,Default Title,,,,,TL-144,,,Lantern Cycles,D2,0,0,0,13,13,13
+stopwell-torque-wrench,Stopwell Torque wrench,Title,Default Title,,,,,TL-145,,,Lantern Cycles,D2,0,0,0,3,3,3
+beamline-chain-checker,Beamline Chain checker,Title,Default Title,,,,,TL-146,,,Lantern Cycles,D2,0,0,0,11,11,11
+vantis-summer-short,Vantis Summer short,Size,S,,,,,GL-147-S,,,Lantern Cycles,D3,0,0,0,3,3,3
+vantis-summer-short,Vantis Summer short,Size,M,,,,,GL-148-M,,,Lantern Cycles,D3,0,0,0,1,1,1
+vantis-summer-short,Vantis Summer short,Size,L,,,,,GL-149-L,,,Lantern Cycles,D3,0,0,0,4,4,4
+vantis-summer-short,Vantis Summer short,Size,XL,,,,,GL-150-XL,,,Lantern Cycles,D3,0,0,0,0,0,0
+vantis-winter-full,Vantis Winter full,Size,S,,,,,GL-151-S,,,Lantern Cycles,D3,0,0,0,2,2,2
+vantis-winter-full,Vantis Winter full,Size,M,,,,,GL-152-M,,,Lantern Cycles,D3,0,0,0,5,5,5
+vantis-winter-full,Vantis Winter full,Size,L,,,,,GL-153-L,,,Lantern Cycles,D3,0,0,0,0,0,0
+vantis-winter-full,Vantis Winter full,Size,XL,,,,,GL-154-XL,,,Lantern Cycles,D3,0,0,0,3,3,3
+vantis-trail-full,Vantis Trail full,Size,S,,,,,GL-155-S,,,Lantern Cycles,D3,0,0,0,3,3,3
+vantis-trail-full,Vantis Trail full,Size,M,,,,,GL-156-M,,,Lantern Cycles,D3,0,0,0,0,0,0
+vantis-trail-full,Vantis Trail full,Size,L,,,,,GL-157-L,,,Lantern Cycles,D3,0,0,0,4,4,4
+vantis-trail-full,Vantis Trail full,Size,XL,,,,,GL-158-XL,,,Lantern Cycles,D3,0,0,0,0,0,0
+halden-saddle-road-143,Halden Saddle road 143,Title,Default Title,,,,,SD-159,,,Lantern Cycles,E1,0,0,0,4,4,4
+halden-saddle-road-155,Halden Saddle road 155,Title,Default Title,,,,,SD-160,,,Lantern Cycles,E1,0,0,0,2,2,2
+halden-saddle-comfort,Halden Saddle comfort,Title,Default Title,,,,,SD-161,,,Lantern Cycles,E1,0,0,0,3,3,3
+halden-saddle-trail,Halden Saddle trail,Title,Default Title,,,,,SD-162,,,Lantern Cycles,E1,0,0,0,2,2,2
+halden-seatpost-27-2,Halden Seatpost 27.2,Title,Default Title,,,,,SD-163,,,Lantern Cycles,E1,0,0,0,4,4,4
+halden-seatpost-30-9,Halden Seatpost 30.9,Title,Default Title,,,,,SD-164,,,Lantern Cycles,E1,0,0,0,1,1,1
+halden-dropper-31-6,Halden Dropper 31.6,Title,Default Title,,,,,SD-165,,,Lantern Cycles,E1,0,0,0,3,3,3
+halden-seat-clamp,Halden Seat clamp,Title,Default Title,,,,,SD-166,,,Lantern Cycles,E1,0,0,0,2,2,2
+torvik-flat-pedals-alloy,Torvik Flat pedals alloy,Title,Default Title,,,,,PD-167,,,Lantern Cycles,E2,0,0,0,7,7,7
+torvik-flat-pedals-nylon,Torvik Flat pedals nylon,Title,Default Title,,,,,PD-168,,,Lantern Cycles,E2,0,0,0,8,8,8
+torvik-clip-pedals-road,Torvik Clip pedals road,Title,Default Title,,,,,PD-169,,,Lantern Cycles,E2,0,0,0,1,1,1
+torvik-clip-pedals-trail,Torvik Clip pedals trail,Title,Default Title,,,,,PD-170,,,Lantern Cycles,E2,0,0,0,5,5,5
+torvik-cleats-road,Torvik Cleats road,Title,Default Title,,,,,PD-171,,,Lantern Cycles,E2,0,0,0,5,5,5
+torvik-cleats-trail,Torvik Cleats trail,Title,Default Title,,,,,PD-172,,,Lantern Cycles,E2,0,0,0,5,5,5
+ostro-saddle-bag-s,Ostro Saddle bag S,Title,Default Title,,,,,BG-173,,,Lantern Cycles,E3,0,0,0,5,5,5
+ostro-saddle-bag-m,Ostro Saddle bag M,Title,Default Title,,,,,BG-174,,,Lantern Cycles,E3,0,0,0,3,3,3
+ostro-frame-bag,Ostro Frame bag,Title,Default Title,,,,,BG-175,,,Lantern Cycles,E3,0,0,0,1,1,1
+ostro-top-tube-bag,Ostro Top tube bag,Title,Default Title,,,,,BG-176,,,Lantern Cycles,E3,0,0,0,3,3,3
+fennick-handlebar-bag,Fennick Handlebar bag,Title,Default Title,,,,,BG-177,,,Lantern Cycles,E3,0,0,0,2,2,2
+fennick-pannier-20-l,Fennick Pannier 20 L,Title,Default Title,,,,,BG-178,,,Lantern Cycles,E3,0,0,0,5,5,5
+fennick-pannier-pair,Fennick Pannier pair,Title,Default Title,,,,,BG-179,,,Lantern Cycles,E3,0,0,0,2,2,2
+fennick-phone-mount,Fennick Phone mount,Title,Default Title,,,,,BG-180,,,Lantern Cycles,E3,0,0,0,7,7,7
+fennick-rack-rear,Fennick Rack rear,Title,Default Title,,,,,BG-181,,,Lantern Cycles,E3,0,0,0,4,4,4
+ostro-basket-front,Ostro Basket front,Title,Default Title,,,,,BG-182,,,Lantern Cycles,E3,0,0,0,4,4,4
+vantis-jersey-classic,Vantis Jersey classic,Size,S,,,,,JR-183-S,,,Lantern Cycles,E4,0,0,0,1,1,1
+vantis-jersey-classic,Vantis Jersey classic,Size,M,,,,,JR-184-M,,,Lantern Cycles,E4,0,0,0,0,0,0
+vantis-jersey-classic,Vantis Jersey classic,Size,L,,,,,JR-185-L,,,Lantern Cycles,E4,0,0,0,1,1,1
+vantis-jersey-classic,Vantis Jersey classic,Size,XL,,,,,JR-186-XL,,,Lantern Cycles,E4,0,0,0,4,4,4
+vantis-jersey-trail,Vantis Jersey trail,Size,S,,,,,JR-187-S,,,Lantern Cycles,E4,0,0,0,2,2,2
+vantis-jersey-trail,Vantis Jersey trail,Size,M,,,,,JR-188-M,,,Lantern Cycles,E4,0,0,0,0,0,0
+vantis-jersey-trail,Vantis Jersey trail,Size,L,,,,,JR-189-L,,,Lantern Cycles,E4,0,0,0,5,5,5
+vantis-jersey-trail,Vantis Jersey trail,Size,XL,,,,,JR-190-XL,,,Lantern Cycles,E4,0,0,0,5,5,5
+vantis-rain-jacket,Vantis Rain jacket,Size,S,,,,,JR-191-S,,,Lantern Cycles,E4,0,0,0,1,1,1
+vantis-rain-jacket,Vantis Rain jacket,Size,M,,,,,JR-192-M,,,Lantern Cycles,E4,0,0,0,4,4,4
+vantis-rain-jacket,Vantis Rain jacket,Size,L,,,,,JR-193-L,,,Lantern Cycles,E4,0,0,0,0,0,0
+vantis-rain-jacket,Vantis Rain jacket,Size,XL,,,,,JR-194-XL,,,Lantern Cycles,E4,0,0,0,2,2,2

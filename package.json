@@ -1,0 +1,11 @@
+{
+  "name": "stocksync",
+  "version": "0.1.0",
+  "description": "Count a shelf with a barcode scanner and see where Shopify and Lightspeed disagree.",
+  "license": "Apache-2.0",
+  "private": true,
+  "scripts": {
+    "test": "node --test tests/",
+    "sample": "node scripts/make-sample-data.js"
+  }
+}
