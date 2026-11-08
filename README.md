@@ -33,6 +33,10 @@ It uses no Bici data: the sample shop, Lantern Cycles, is made up.
 | **Count off** | Scanned a different number than a system lists | Correct the count in that system |
 | **Channels disagree** | Shopify and Lightspeed list different stock for the same item, or only one lists it | Fix the system that's wrong, before it oversells online |
 
+As you scan, StockSync shows how many of the shelf's listed items you've found, and its **shelf
+accuracy**: the share of items whose count matches both systems. Matching items fold away, so the
+problems stay at the top.
+
 The counts are saved in your browser as you go, so a closed tab or a refresh doesn't lose a
 half-counted shelf.
 
