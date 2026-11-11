@@ -311,11 +311,11 @@
     const details = [r.note, r.channel_note].filter(Boolean).map((d) => `<div>${esc(d)}</div>`).join("");
     const qty = (v) => (v == null ? `<span class="muted">—</span>` : v);
     const mark = r.status === "missing"
-      ? `<br><button class="btn mark-btn" data-mark="${esc(r.key)}" aria-pressed="${r.confirmed_missing}">${r.confirmed_missing ? "✓ Marked missing" : "Mark missing"}</button>` : "";
+      ? `<button class="btn mark-btn" data-mark="${esc(r.key)}" aria-pressed="${r.confirmed_missing}">${r.confirmed_missing ? "✓ Marked missing" : "Mark missing"}</button>` : "";
     const stepper = r.key.startsWith("?") ? `<b>${r.scanned}</b>`
       : `<span class="stepper"><button data-step="-1" data-key="${esc(r.key)}" aria-label="One fewer ${esc(r.title)}">−</button><b>${r.scanned}</b><button data-step="1" data-key="${esc(r.key)}" aria-label="One more ${esc(r.title)}">+</button></span>`;
     return `<tr class="${r.key === flashKey ? "flash" : ""}">
-      <td>${badge}${mark}</td>
+      <td><div class="status-cell">${badge}${mark}</div></td>
       <td><div class="item-title">${esc(r.title)}</div><div class="item-sku">${esc(r.sku || r.barcode)}${r.sku && r.barcode ? " · " + esc(r.barcode) : ""}</div><div class="details-inline"><div>Shopify ${r.shopify ?? "—"} · Lightspeed ${r.lightspeed ?? "—"}</div>${details}</div></td>
       <td class="num">${stepper}</td>
       <td class="num">${qty(r.shopify)}</td>

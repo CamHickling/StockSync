@@ -105,4 +105,7 @@ node scripts/make-sample-data.js      # regenerate the sample shop
 - `src/app.js` is the page.
 - `sample/PLANTED.md` lists the mismatches planted in the sample data.
 
-Licensed under the [Apache License 2.0](LICENSE). Not affiliated with Shopify, Lightspeed or Bici.
+Licensed under the [Apache License 2.0](LICENSE). The fonts in `fonts/`, Archivo and IBM Plex Mono, are
+served from this repo rather than a font service, so the page makes no outside requests. They are under
+the SIL Open Font License 1.1 ([Archivo](fonts/OFL-Archivo.txt), [IBM Plex Mono](fonts/OFL-IBM-Plex-Mono.txt)).
+Not affiliated with Shopify, Lightspeed or Bici.
