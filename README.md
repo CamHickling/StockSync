@@ -6,6 +6,10 @@ Lightspeed disagree.**
 **[Try it in your browser →](https://camhickling.github.io/StockSync/)** It comes with a sample shop, so
 there's nothing to set up.
 
+<p align="center">
+  <a href="https://camhickling.github.io/StockSync/"><img src="video/stocksync-15s.gif" width="720" alt="15-second demo of StockSync with the sample bike shop: 26 barcode scans fill in the report for shelf A1, the progress bar and shelf accuracy rise, one bike stays Missing and is marked missing, and the Channels disagree filter shows a bike that Shopify and Lightspeed list differently"></a>
+</p>
+
 ## Why it exists
 
 At Bici, a bike store and online retailer in Vancouver, we sold through Lightspeed in store and Shopify
@@ -20,7 +24,8 @@ It uses no Bici data: the sample shop, Lantern Cycles, is made up.
 ## What it does
 
 1. **Load your exports:** Shopify's inventory export and Lightspeed's item export (CSV). Both are read
-   in your browser and never uploaded.
+   in your browser and never uploaded. If your shop has more than one Shopify location, pick the one
+   you're counting.
 2. **Pick a section,** such as one shelf or bin.
 3. **Scan everything on it.** Barcode scanners type like a keyboard, so any USB or Bluetooth scanner
    works, and you can also type a barcode or SKU.
@@ -38,7 +43,8 @@ accuracy**: the share of items whose count matches both systems. Matching items 
 problems stay at the top.
 
 The counts are saved in your browser as you go, so a closed tab or a refresh doesn't lose a
-half-counted shelf.
+half-counted shelf. If a big store's exports are too large for the browser to keep, StockSync says
+so: the counts are still saved, and they come back when you load the same files again.
 
 ## Decisions
 
@@ -46,7 +52,9 @@ half-counted shelf.
 |---|---|
 | Runs in the browser from the stores' own exports, with no login or API keys | Anyone on the floor can use it today, and store data stays on their computer |
 | Compares the shelf with **both** systems at once | The costly problem is the two channels drifting apart, not just a miscount |
-| Matches by SKU across systems, and by barcode or SKU when scanning | Shopify's inventory export has no barcodes; Lightspeed's has UPCs, so between them every scan resolves |
+| Matches by SKU across systems, and by SKU or any label code when scanning | Shopify's inventory export has no barcodes. Lightspeed's has UPC, EAN and System ID, and its labels print the System ID when there's no UPC, so all of them count as scans |
+| A code shared by several items is refused, not guessed | One manufacturer SKU for every size can't say which size was scanned; a wrong guess would hide a real miscount |
+| Counts one Shopify location at a time | Adding the warehouse to the shop floor would make every shelf look short |
 | Scans that don't match are kept and reported, never ignored | An unknown barcode on the shelf is itself a finding |
 | "Missing" needs a person to confirm it | An item not scanned yet isn't the same as an item that's gone |
 | One section at a time | Matches how recounts actually happen: one shelf, one person, a few minutes |
@@ -54,9 +62,9 @@ half-counted shelf.
 ## Using it with your store's files
 
 - **Shopify:** Products › Inventory › Export. StockSync uses `SKU`, `On hand (current)` (or
-  `Available`) and `Bin name` for the section.
-- **Lightspeed:** export your items as CSV. StockSync uses `Custom SKU`, `UPC` and `Qty.`, and `Bin` if
-  there is one.
+  `Available`), `Bin name` for the section and `Location` to pick a location.
+- **Lightspeed:** export your items as CSV. StockSync uses `Custom SKU` and `Qty.`, `Bin` if there is
+  one, and `UPC`, `EAN`, `System ID` and `Manufact. SKU` as codes you can scan.
 
 Columns are found by name, and StockSync also accepts `SKU`, `Barcode`, `Quantity`, `Section` and
 similar. If a file can't be used, it says which column is missing. **The column names are based on the

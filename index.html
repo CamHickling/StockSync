@@ -56,6 +56,12 @@
             <span class="drop-status" data-status="lightspeed">Drop a CSV here or choose a file</span>
           </label>
         </div>
+        <div id="locationRow" class="location-row" hidden>
+          <label for="location" class="field-label">Which Shopify location are you counting?</label>
+          <select id="location"></select>
+          <p class="small muted">Your Shopify export lists stock at more than one location. The shelf is compared with this location's numbers only.</p>
+        </div>
+        <p id="setupNote" class="notice" role="status" hidden></p>
         <p id="setupError" class="error" role="alert" hidden></p>
         <div class="setup-actions">
           <button id="useFiles" class="btn primary" disabled>Start counting</button>
@@ -76,6 +82,7 @@
     <!-- Step 2: count and compare -->
     <section id="work" class="work" hidden>
       <div id="scanCard" class="card scan-card">
+        <p id="storageNote" class="notice" role="status" hidden></p>
         <label for="section" class="field-label">Section</label>
         <select id="section"></select>
 

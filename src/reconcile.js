@@ -53,7 +53,11 @@
     title: ["title", "description", "item", "name", "product"],
     qty: ["on hand (current)", "on hand", "available (not editable)", "available", "variant inventory qty", "qty.", "qty", "quantity"],
     section: ["bin name", "bin", "section", "shelf"],
+    location: ["location"],
   };
+  // Every column whose value can be on a label. Lightspeed prints the System ID on its labels
+  // when an item has no UPC or EAN, so a scan can be any of these.
+  const CODE_COLUMNS = ["barcode", "variant barcode", "upc", "ean", "system id", "manufact. sku"];
   const OPTION_VALUES = ["option1 value", "option2 value", "option3 value"];
 
   const norm = (s) => String(s).toLowerCase().replace(/\s+/g, " ").trim();
@@ -79,9 +83,13 @@
 
   /**
    * Turn an export into StockSync items. Throws an Error naming what's missing if the file
-   * can't be used. Rows that repeat a SKU (a product at several locations) are summed.
+   * can't be used. Rows that repeat a SKU are summed.
+   *
+   * A Shopify inventory export has one row per item per location. With opts.location, only
+   * that location's rows are read; without it, every location is added together.
    */
-  function readExport(text, system) {
+  function readExport(text, system, opts) {
+    opts = opts || {};
     const { headers, rows } = parseCSV(text);
     if (!headers.length) throw new Error("The file is empty.");
     system = system || detectSystem(headers);
@@ -90,10 +98,15 @@
     if (!col.sku) throw new Error("No SKU column found. Expected one of: SKU, Variant SKU, Custom SKU.");
     if (!col.qty) throw new Error("No quantity column found. Expected one of: On hand (current), On hand, Available, Qty.");
     const optCols = OPTION_VALUES.map((a) => findColumn(headers, [a])).filter(Boolean);
+    const codeCols = [...new Set(CODE_COLUMNS.map((a) => findColumn(headers, [a])).filter(Boolean))];
+
+    const locations = col.location ? [...new Set(rows.map((r) => r[col.location]).filter(Boolean))] : [];
+    const location = opts.location && locations.includes(opts.location) ? opts.location : null;
 
     const items = new Map();
     const problems = [];
     rows.forEach((r, i) => {
+      if (location && r[col.location] !== location) return;
       const sku = r[col.sku];
       if (!sku) { problems.push(`Row ${i + 2}: no SKU, skipped.`); return; }
       const qtyText = r[col.qty];
@@ -102,34 +115,45 @@
       const options = optCols.map((c) => r[c]).filter((v) => v && v !== "Default Title");
       const title = [col.title ? r[col.title] : "", ...options].filter(Boolean).join(" · ");
       const key = normCode(sku);
+      const codes = codeCols.map((c) => r[c]).filter(Boolean);
       const prev = items.get(key);
-      if (prev) { prev.qty += qty; return; }
+      if (prev) {
+        prev.qty += qty;
+        for (const code of codes) if (!prev.codes.includes(code)) prev.codes.push(code);
+        return;
+      }
       items.set(key, {
         key,
         sku,
         barcode: col.barcode ? r[col.barcode] : "",
+        codes,
         title: title || sku,
         qty,
         section: col.section ? r[col.section] : "",
       });
     });
-    return { system, items, problems, hasSection: !!col.section, hasBarcode: !!col.barcode };
+    return { system, items, problems, hasSection: !!col.section, hasBarcode: !!col.barcode, locations, location };
   }
 
   // ---------- Combining the two systems ----------
 
   /**
-   * Build one catalogue from both systems' items, keyed by normalised SKU,
-   * plus a lookup from every barcode and SKU to that key.
+   * Build one catalogue from both systems' items, keyed by normalised SKU, plus a lookup from
+   * every SKU and label code (UPC, EAN, System ID, ...) to that key.
+   *
+   * A SKU always finds its own item. A label code shared by different items (say, one
+   * manufacturer SKU for every size) can't say which one was scanned, so it goes in
+   * `ambiguous` instead of the lookup.
    */
   function buildCatalog(shopify, lightspeed) {
     const catalog = new Map();
     const add = (src, name) => {
       if (!src) return;
       for (const it of src.items.values()) {
-        const c = catalog.get(it.key) || { key: it.key, sku: it.sku, barcode: "", title: it.title, section: "", shopify: null, lightspeed: null };
+        const c = catalog.get(it.key) || { key: it.key, sku: it.sku, barcode: "", codes: [], title: it.title, section: "", shopify: null, lightspeed: null };
         c[name] = { qty: it.qty, section: it.section };
         if (!c.barcode && it.barcode) c.barcode = it.barcode;
+        for (const code of it.codes || []) if (!c.codes.includes(code)) c.codes.push(code);
         if (name === "shopify" || !c.title) c.title = it.title;
         catalog.set(it.key, c);
       }
@@ -137,13 +161,24 @@
     add(shopify, "shopify");
     add(lightspeed, "lightspeed");
     const lookup = new Map();
+    for (const c of catalog.values()) lookup.set(c.key, c.key);
+    const owners = new Map(); // label code -> Set of item keys
     for (const c of catalog.values()) {
-      lookup.set(c.key, c.key);
-      if (c.barcode) lookup.set(normCode(c.barcode), c.key);
+      for (const code of c.codes) {
+        const n = normCode(code);
+        if (!n || lookup.has(n)) continue; // a SKU wins over a label code
+        if (!owners.has(n)) owners.set(n, new Set());
+        owners.get(n).add(c.key);
+      }
+    }
+    const ambiguous = new Map();
+    for (const [n, keys] of owners) {
+      if (keys.size === 1) lookup.set(n, [...keys][0]);
+      else ambiguous.set(n, [...keys]);
     }
     // An item's section: Shopify's bin if it has one, else Lightspeed's.
     for (const c of catalog.values()) c.section = (c.shopify && c.shopify.section) || (c.lightspeed && c.lightspeed.section) || "";
-    return { catalog, lookup };
+    return { catalog, lookup, ambiguous };
   }
 
   function sections(catalog) {

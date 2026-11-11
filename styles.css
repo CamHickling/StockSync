@@ -104,6 +104,10 @@ main { max-width: 1280px; margin: 0 auto; padding: 6px 16px 24px; }
 .setup-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 6px; }
 .or { color: var(--muted); font-size: 13px; }
 .error { color: var(--missing); background: var(--missing-soft); padding: 10px 12px; border-radius: 8px; font-size: 14px; }
+.notice { color: var(--unlisted); background: var(--unlisted-soft); padding: 10px 12px; border-radius: 8px; font-size: 14px; margin: 0 0 12px; }
+.location-row { margin: 14px 0 18px; }
+.location-row select { width: 100%; }
+.location-row p { margin: 6px 0 0; }
 .legend { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 18px; font-size: 13px; color: var(--muted); padding: 0 4px; }
 .legend .badge { margin-right: 6px; }
 

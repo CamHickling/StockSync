@@ -4,6 +4,7 @@
   const S = window.StockSync;
   const SAMPLE = window.STOCKSYNC_SAMPLE;
   const STORE_KEY = "stocksync:v1";
+  const FILES_KEY = "stocksync:v1:files";
   const THEME_KEY = "stocksync:theme";
   const $ = (id) => document.getElementById(id);
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -23,6 +24,7 @@
   let state = {
     files: { shopify: null, lightspeed: null }, // { name, text }
     sample: false,
+    location: "",   // the Shopify location being counted, when the export has several
     section: "",
     scans: {},      // section -> { key: count }
     confirmed: {},  // section -> [key]
@@ -36,11 +38,48 @@
   let flashKey = null;
   let demoTimer = null;
 
+  // The counts and the exports are saved separately. The counts are small and always fit; a big
+  // store's exports may not, and then only the files have to be loaded again after a refresh.
+  let filesSaved = true;
+  let countsSaved = true;
+
   function save() {
-    try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) { /* private window or full: keep working */ }
+    const { files, ...counts } = state;
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(counts)); countsSaved = true; }
+    catch (e) {
+      if (countsSaved) toast("This browser isn't saving your counts. Export the report before you close the tab.");
+      countsSaved = false;
+    }
+    renderStorageNote();
+  }
+  function saveFiles() {
+    try { localStorage.setItem(FILES_KEY, JSON.stringify(state.files)); filesSaved = true; }
+    catch (e) {
+      try { localStorage.removeItem(FILES_KEY); } catch (e2) { /* ignore */ }
+      filesSaved = false;
+    }
   }
   function load() {
-    try { const s = JSON.parse(localStorage.getItem(STORE_KEY) || "null"); if (s && s.files) state = Object.assign(state, s); } catch (e) { /* ignore */ }
+    try {
+      const s = JSON.parse(localStorage.getItem(STORE_KEY) || "null");
+      if (s) state = Object.assign(state, s);
+      const f = JSON.parse(localStorage.getItem(FILES_KEY) || "null");
+      if (f) state.files = f;
+      else if (state.files.shopify || state.files.lightspeed) saveFiles(); // saved by an older version, files and counts together
+    } catch (e) { /* ignore */ }
+  }
+  const hasCounts = () => Object.values(state.scans).some((s) => s && Object.keys(s).length);
+
+  function renderStorageNote() {
+    const el = $("storageNote");
+    if (!el) return;
+    const msg = !countsSaved
+      ? "This browser isn't saving your counts (it may be a private window). Export the report before you close this tab."
+      : !filesSaved
+        ? "Your counts are saved, but these exports are too big to keep in this browser. After a refresh, load the same files again and your counts come back."
+        : "";
+    el.textContent = msg;
+    el.hidden = !msg;
   }
 
   const sec = (obj, init) => (obj[state.section] = obj[state.section] || init);
@@ -99,7 +138,18 @@
     pending[target] = { name: file.name, text };
     const moved = parsed.system && parsed.system !== slot;
     setDropStatus(target, `${file.name} · ${parsed.items.size} items${moved ? " (moved here: it's this kind of export)" : ""}`, parsed.problems);
+    if (target === "shopify") showLocations(parsed.locations);
     $("useFiles").disabled = !(pending.shopify || pending.lightspeed);
+  }
+
+  // A Shopify export from a shop with several locations needs the one being counted.
+  function showLocations(locations) {
+    const row = $("locationRow");
+    const many = locations && locations.length > 1;
+    row.hidden = !many;
+    if (!many) return;
+    const current = locations.includes(state.location) ? state.location : locations[0];
+    $("location").innerHTML = locations.map((l) => `<option value="${esc(l)}" ${l === current ? "selected" : ""}>${esc(l)}</option>`).join("");
   }
 
   function setDropStatus(system, text, problems) {
@@ -116,19 +166,21 @@
   }
 
   function buildData() {
-    const read = (f) => (f ? S.readExport(f.text) : null);
-    const shopify = read(state.files.shopify);
+    const read = (f, opts) => (f ? S.readExport(f.text, null, opts) : null);
+    const shopify = read(state.files.shopify, { location: state.location });
     const lightspeed = read(state.files.lightspeed);
-    const { catalog, lookup } = S.buildCatalog(shopify, lightspeed);
-    data = { shopify, lightspeed, catalog, lookup, sections: S.sections(catalog) };
+    const { catalog, lookup, ambiguous } = S.buildCatalog(shopify, lightspeed);
+    data = { shopify, lightspeed, catalog, lookup, ambiguous, sections: S.sections(catalog) };
     if (!data.sections.some((s) => s.name === state.section)) state.section = data.sections.length ? data.sections[0].name : "";
   }
 
   function startWith(files, sample) {
     state.files = files;
     state.sample = sample;
+    state.location = !sample && !$("locationRow").hidden ? $("location").value : "";
     try { buildData(); } catch (e) { return showSetupError(e.message); }
     if (!data.sections.length) return showSetupError("Neither file has a bin or section column, so StockSync can't tell which items belong on a shelf. Add a Bin column, or set bins in Shopify.");
+    saveFiles();
     save();
     showWork();
   }
@@ -141,9 +193,20 @@
     if (!state.sample) {
       for (const sys of ["shopify", "lightspeed"]) {
         const f = state.files[sys];
-        if (f && !pending[sys]) { pending[sys] = f; try { setDropStatus(sys, `${f.name} · ${S.readExport(f.text).items.size} items`); } catch (e) { /* ignore */ } }
+        if (f && !pending[sys]) {
+          pending[sys] = f;
+          try {
+            const parsed = S.readExport(f.text);
+            setDropStatus(sys, `${f.name} · ${parsed.items.size} items`);
+            if (sys === "shopify") showLocations(parsed.locations);
+          } catch (e) { /* ignore */ }
+        }
       }
     }
+    // Counts survive a refresh even when the files were too big to keep.
+    const note = $("setupNote");
+    note.hidden = !(hasCounts() && !state.files.shopify && !state.files.lightspeed);
+    note.textContent = "Your counts from last time are still here. Load the same exports to pick up where you left off.";
     $("useFiles").disabled = !(pending.shopify || pending.lightspeed);
     $("setup").hidden = false;
     $("work").hidden = true;
@@ -156,6 +219,7 @@
     renderDataBar();
     renderSections();
     $("demo").hidden = !(state.sample && SAMPLE);
+    renderStorageNote();
     setFeedback("info", "Ready to scan", `Scan the items on shelf ${state.section}. A scanner works like a keyboard: just point and scan.`);
     render();
     focusScan();
@@ -164,8 +228,9 @@
   function renderDataBar() {
     const bar = $("dataBar");
     const part = (label, src) => `<span class="pill"><span class="dot ${src ? "" : "off"}"></span>${label}${src ? ` · ${src.items.size}` : ": no file"}</span>`;
+    const where = data.shopify && data.shopify.location ? ` · ${esc(data.shopify.location)}` : "";
     bar.innerHTML = (state.sample ? `<span class="pill">${esc(SAMPLE.shop)} · sample</span>` : "") +
-      part("Shopify", data.shopify) + part("Lightspeed", data.lightspeed) +
+      part("Shopify" + where, data.shopify) + part("Lightspeed", data.lightspeed) +
       `<button class="link-btn" id="changeFiles" type="button">Change files</button>`;
     bar.hidden = false;
     $("changeFiles").onclick = showSetup;
@@ -298,6 +363,14 @@
   function addScan(code) {
     code = code.trim();
     if (!code) return;
+    // A code on several items (one manufacturer SKU for every size, say) can't be counted safely.
+    const shared = !S.lookupCode(data.lookup, code) && data.ambiguous && data.ambiguous.get(S.normCode(code));
+    if (shared) {
+      const skus = shared.map((k) => data.catalog.get(k).sku);
+      setFeedback("warn", "This code is on more than one item", `${code} belongs to ${skus.join(", ")}. Not counted: scan or type the item's SKU instead.`);
+      beep("warn");
+      return;
+    }
     const key = S.lookupCode(data.lookup, code) || "?" + S.normCode(code);
     const c = data.catalog.get(key);
     const kind = !c ? "bad" : c.section !== state.section ? "warn" : "good";

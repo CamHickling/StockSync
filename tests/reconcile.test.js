@@ -53,6 +53,33 @@ test("codes match without case, spaces or dashes; barcodes come from Lightspeed"
   assert.equal(S.lookupCode(lookup, "999"), null);
 });
 
+test("every label code scans: UPC, EAN and Lightspeed's System ID", () => {
+  const { lookup } = S.buildCatalog(S.readExport(sample("shopify_inventory.csv")), S.readExport(sample("lightspeed_items.csv")));
+  assert.equal(S.lookupCode(lookup, "210001"), "BK001XS"); // System ID, printed on Lightspeed labels
+  const ls = S.readExport("System ID,UPC,EAN,Custom SKU,Qty.\n1,,4006381333931,A-1,2\n");
+  assert.equal(S.lookupCode(S.buildCatalog(null, ls).lookup, "4006381333931"), "A1");
+});
+
+test("a label code on several items isn't guessed, and a SKU always finds its own item", () => {
+  const ls = S.readExport("System ID,Manufact. SKU,Custom SKU,Qty.\n1,HX-200,HX-200-S,1\n2,HX-200,HX-200-M,1\n3,B-1,C-1,1\n4,,B-1,1\n");
+  const { lookup, ambiguous } = S.buildCatalog(null, ls);
+  assert.equal(S.lookupCode(lookup, "HX-200"), null);
+  assert.deepEqual(ambiguous.get("HX200"), ["HX200S", "HX200M"]);
+  assert.equal(S.lookupCode(lookup, "B-1"), "B1"); // B-1 is item 4's SKU, though item 3's manufacturer SKU too
+});
+
+test("readExport can read one location of a Shopify export, and lists the locations", () => {
+  const csv = "Handle,SKU,Location,Bin name,On hand (current)\nh,A-1,Main St,A1,2\nh,A-1,Warehouse,W9,7\n";
+  const all = S.readExport(csv);
+  assert.deepEqual(all.locations, ["Main St", "Warehouse"]);
+  assert.equal(all.items.get("A1").qty, 9);
+  const main = S.readExport(csv, null, { location: "Main St" });
+  assert.equal(main.location, "Main St");
+  assert.equal(main.items.get("A1").qty, 2);
+  assert.equal(main.items.get("A1").section, "A1");
+  assert.equal(S.readExport(csv, null, { location: "Gone" }).items.get("A1").qty, 9); // unknown location: all of them
+});
+
 function scan(lookup, codes) {
   const scans = {};
   for (const c of codes) {
